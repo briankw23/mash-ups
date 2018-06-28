@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Animals from '../components/animals/Animals';
+import AnimalForm from '../components/animalForm/AnimalForm';
+import connection from '../firebaseRequests/connection';
+
 class App extends Component {
+  componentDidMount () {
+    const fb = connection();
+    console.error(fb);
+  }
   render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button className='btn btn-danger'>Bootstrap</button>
+      <div className="app">
+        <div className="col-sm-6">
+          <Animals/>
+        </div>
+        <div className="col-sm-6">
+          <AnimalForm/>
+        </div>
       </div>
     );
   }
