@@ -3,8 +3,13 @@ import './App.css';
 
 import Animals from '../components/animals/Animals';
 import AnimalForm from '../components/animalForm/AnimalForm';
+import connection from '../firebaseRequests/connection';
 
 class App extends Component {
+  componentDidMount () {
+    const fb = connection();
+    console.error(fb);
+  }
   render () {
     return (
       <div className="app">
